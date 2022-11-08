@@ -1,16 +1,19 @@
-# This is a sample Python script.
-
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+from SenecSim.UniteData import read_momentary_values, read_timespan_values
+from matplotlib import pyplot as plt
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+momentary_values = read_momentary_values()
+timespan_values = read_timespan_values()
+
+momentary_values.sort()
+timespan_values.sort()
+
+for value in momentary_values:
+    print(value.timestamp)
 
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+# times = [value.timestamp for value in momentary_values]
+# socs = [value.soc for value in momentary_values]
+# plt.plot(times, socs)
+# plt.show()
